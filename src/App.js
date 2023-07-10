@@ -16,7 +16,7 @@ function App() {
     setTimeout(()=>{
       dispatch({type: 'REMOVE_LOADING'})
     },1400)
-  }, [])
+  }, [dispatch])
 
   if(loading){
     return <Spinner />
