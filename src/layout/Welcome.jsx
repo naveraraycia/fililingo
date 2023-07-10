@@ -1,4 +1,4 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import QuizContext from '../quiz/QuizContext'
 import TextGroup from '../components/TextGroup'
 

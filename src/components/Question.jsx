@@ -20,7 +20,6 @@ function Question() {
   }
 
   const handleSubmit = () => {
-    
     if (answer === result.value.correctAnswer) {
       setCorrect(true)
       const addToScore = score + 1
@@ -28,6 +27,7 @@ function Question() {
     } else {
       setWrong(true)
     }
+    
     setTimeout(()=> {
       result.next()
       setSelected(null)

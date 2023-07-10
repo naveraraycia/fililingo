@@ -1,4 +1,4 @@
-import {useContext, useEffect} from 'react'
+import { useContext, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QuizContext from "./quiz/QuizContext";
 import Welcome from "./layout/Welcome";
@@ -16,7 +16,6 @@ function App() {
     setTimeout(()=>{
       dispatch({type: 'REMOVE_LOADING'})
     },1400)
-  
   }, [])
 
   if(loading){

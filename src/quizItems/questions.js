@@ -88,8 +88,7 @@ const questions = [
     question: 'Mahilig ka ba sa aso o sa pusa?',
     choices: ['Do you like dogs or cats?', 'Do you like birds or fish?', 'Do you like rabbits or cats?'],
     correctAnswer: 'Do you like dogs or cats?'
-  },
-
+  }
 ]
 
 export default questions
