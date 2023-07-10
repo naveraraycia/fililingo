@@ -10,15 +10,25 @@ const quizReducer = (state, action) => {
         ...state,
         loading: true
       }
+    case 'REMOVE_LOADING':
+      return {
+        ...state,
+        loading: false
+      }
     case 'SHOW_QUESTIONS':
       return {
         ...state,
         showQuestions: true
       }
-    case 'REMOVE_LOADING':
+    case 'ADD_SCORE':
       return {
         ...state,
-        loading: false
+        score: action.payload
+      }
+    case 'UPDATE_PROGRESS':
+      return {
+        ...state,
+        progress: action.payload
       }
     default:
       return state

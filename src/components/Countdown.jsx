@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import QuizContext from "../quiz/QuizContext"
 
 function Countdown() {
@@ -11,16 +11,11 @@ function Countdown() {
         clearInterval(startCountdown)
         setTimeout(()=>{
           dispatch({type: 'SHOW_QUESTIONS'})
-        },2000)
+        },1000)
       }
 		}
     document.getElementById('counterElement').style.setProperty('--value', counter)  
-    console.log('hello world');
-  }, 1500)
-
-  useEffect(()=>{
-   
-  },[])
+  }, 700)
 
   return (
     <div className="h-screen flex flex-col justify-center space-y-5 items-center">

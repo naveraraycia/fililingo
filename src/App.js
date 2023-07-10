@@ -1,9 +1,12 @@
-import QuizContext from "./quiz/QuizContext";
 import {useContext, useEffect} from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import QuizContext from "./quiz/QuizContext";
 import Welcome from "./layout/Welcome";
 import Footer from "./layout/Footer";
 import Spinner from "./components/Spinner";
 import Countdown from "./components/Countdown";
+import Question from "./components/Question";
+import NotFound from './pages/NotFound';
 
 function App() {
   const {quizStart, showQuestions, loading, dispatch} = useContext(QuizContext)
@@ -20,21 +23,28 @@ function App() {
     return <Spinner />
   } else {
     return (
-      <>
+      <Router>  
         <div className="h-screen flex flex-col justify-between">
-          {quizStart === false ? (
-            <Welcome />
-          ) : (
-            showQuestions ? (<h3>Questions!</h3>) : (
-              <Countdown />
-            )
-         
+        <Routes>
+          <Route path='/' element={
+            <>   
+              {quizStart === false ? (
+                <Welcome />
+              ) : (
+                showQuestions ? (
+                  <Question />
+                ) : (
+                  <Countdown />
+                )
+              )}
+            </>
+          } />
 
-          // @todo => create the quiz question item component
-          )}
+          <Route path='/*' element={<NotFound />} />
+        </Routes>
           <Footer />
         </div> 
-      </>
+      </Router>
     );
   }
 }
