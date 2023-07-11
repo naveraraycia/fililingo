@@ -13,6 +13,7 @@ function Question() {
   const [isDisabled, setIsDisabled] = useState(true)
   const [wrong, setWrong] = useState(false)
   const [correct, setCorrect] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const handleSelect = (index, choice) => {
     setSelected(index)
     setAnswer(choice)
@@ -21,6 +22,7 @@ function Question() {
 
   const handleSubmit = () => {
     setIsDisabled(true)
+    setSubmitted(true)
     if (answer === result.value.correctAnswer) {
       setCorrect(true)
       const addToScore = score + 1
@@ -34,6 +36,7 @@ function Question() {
       setSelected(null)
       setWrong(false)
       setCorrect(false)
+      setSubmitted(false)
       const updatedProgress = progressValue + 6.67
       dispatch({type: 'UPDATE_PROGRESS', payload: updatedProgress})
       setProgressValue(updatedProgress)
@@ -47,7 +50,12 @@ function Question() {
         <Card>
           <h2 className="card-title text-sm font-bold tracking-wide text-neutral-content md:text-lg">Question {result.value.id}</h2>
           <p className="text-xs max-w-md"><span className="font-bold text-neutral-content">Instruction:</span> select the correct English translation for the following Tagalog phrases</p>
-          <div className="w-full space-y-5">
+          <div className="w-full relative space-y-5">
+            {submitted && (
+              <div className="absolute top-0 left-0 bottom-0 right-0 h-screen z-20 bg-base bg-opacity-75">
+               
+              </div>
+            )}
             <p className="text-neutral-content text-xl">{result.value.question}</p> 
             <div className="space-y-2 w-full text-sm">
               {result.value.choices.map((choice, index)=>(
