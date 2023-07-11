@@ -20,6 +20,7 @@ function Question() {
   }
 
   const handleSubmit = () => {
+    setIsDisabled(true)
     if (answer === result.value.correctAnswer) {
       setCorrect(true)
       const addToScore = score + 1
@@ -31,7 +32,6 @@ function Question() {
     setTimeout(()=> {
       result.next()
       setSelected(null)
-      setIsDisabled(true)
       setWrong(false)
       setCorrect(false)
       const updatedProgress = progressValue + 6.67
