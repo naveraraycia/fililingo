@@ -23,7 +23,7 @@ function App() {
   } else {
     return (
       <Router>  
-        <div className="h-screen py-5 flex flex-col justify-between">
+        <div className="h-screen pt-5 flex flex-col justify-between">
         <Routes>
           <Route path='/' element={
             <>   
